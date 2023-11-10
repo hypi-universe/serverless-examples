@@ -1,0 +1,10 @@
+{
+  "name": "fenrir-runtime-nodejs",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "docker build . -t hcr.hypi.app/nodejs-example:$VERSION",
+    "deploy": "docker push hcr.hypi.app/nodejs-example:$VERSION"
+  },
+  "dependencies": {
+  }
+}
