@@ -18,6 +18,7 @@
 
     <dependencies>
         <!-- Add your Java dependencies here -->
+</dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
