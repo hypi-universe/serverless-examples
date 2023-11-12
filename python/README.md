@@ -19,6 +19,15 @@ The function has one dictionary parameter. It has a few entries
 * `env` - an object containing the values of any environment variables that the function was configured with
 * `args` - an object containing the values of any parameters on the GraphQL field in the schema where the function is configured.
   For example, if the field is configured like `myApi(a: Int, b: String,c: MyObject) @fn(name:"my-fn")` then the args map will contain `a`, `b` and `c` with the values passed to `myApi` at runtime.
+* hypi - a `Map<String,Object>` contains a set of keys that provide meta data for the function. Currently
+  * `account_id: String` - the ID of the account that has invoked the function
+  * `instance_id: String` - the ID of the Hypi app instance
+  * `domain: String` - the domain of the instance (`instance_id` is for this domain), use it to make requests to Hypi from the function
+  * `token: String` - the authorisation token used to make this request, normally corresponds to `account_id` but can be `anonymous`
+  * `admin_token: String` - this is a token with escalated privileges on the domain.
+                            A function should NOT use this for most request, it allows the function to perform requests that the `token` user otherwise would not have permission to do.
+
+                            It is intended to allow administrative operations or to call APIs restricted to normal users.
 
 ## Controlling output
 
